@@ -24,7 +24,7 @@ def mask_account_card(account_card: str) -> str:
 def get_date(ISO_format: str) -> str:
     """
     Функция принимает дату в формате ГГГГ-ММ-ДДТЧЧ:ММ:СС
-    и возвращает ДД-ММ-ГГГГ
+    и возвращает ДД.ММ.ГГГГ
     """
-    modified_data = ISO_format[8:10] + "-" + ISO_format[5:7] + "-" + ISO_format[0:4]
+    modified_data = ISO_format[8:10] + "." + ISO_format[5:7] + "." + ISO_format[0:4]
     return modified_data
