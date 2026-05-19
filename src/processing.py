@@ -1,8 +1,21 @@
-def filter_by_state(list_: list, state: str = 'EXECUTED') -> list:
+def filter_by_state(list_with_state: list, state: str = "EXECUTED") -> list:
+    """
+    Функция возвращает отсортированный спсиок коллекций по ключу state
+    """
+
     sorted_list = []
-    for key in list_:
-        if key.get('state') == state:
+
+    for key in list_with_state:
+        if key.get("state") == state:
             sorted_list.append(key)
         else:
             continue
+
     return sorted_list
+
+
+def sort_by_date(list_with_date: list[dict], reverse: bool = True) -> list[dict]:
+    """
+    Функция возвращает список коллекций отсортированный по дате. По умолчанию - убывание
+    """
+    return sorted(list_with_date, key=lambda x: x["date"], reverse=reverse)
