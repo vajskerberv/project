@@ -22,8 +22,8 @@ from src.processing import filter_by_state, sort_by_date
         ),
     ],
 )
-def test_filter_by_state(state, expected_data_filtering):
-    result = filter_by_state(expected_data_filtering, state)
+def test_filter_by_state(state, expected_data_filtering, data_for_tests):
+    result = filter_by_state(data_for_tests, state)
     expected = expected_data_filtering
     assert result == expected
 
@@ -51,7 +51,7 @@ def test_filter_by_state(state, expected_data_filtering):
         ),
     ],
 )
-def test_sort_by_date(expected_data_sorting, sort_sequence):
-    result = sort_by_date(expected_data_sorting)
+def test_sort_by_date(sort_sequence, expected_data_sorting, data_for_tests):
+    result = sort_by_date(data_for_tests)
     expected = expected_data_sorting
     assert result == expected

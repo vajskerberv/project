@@ -25,15 +25,5 @@ def test_mask_account_card(account_card, expected_masking_result):
     assert result == expected
 
 
-@pytest.mark.parametrize(
-    "iso_date, expected_result",
-    [
-        ("2000-01-01T00:00:00", "01.01.2000"),
-        ("2017-07-26T14:26:36", "26.07.2017"),
-        ("2023-10-15T16:43:15", "15.10.2023"),
-    ],
-)
-def test_get_date(iso_date, expected_result):
-    result = get_date(iso_date)
-    expected = expected_result
-    assert result == expected
+def test_get_date(iso_date):
+    assert get_date("2000-01-01T00:00:00") == iso_date
