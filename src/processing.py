@@ -1,6 +1,6 @@
 def filter_by_state(list_to_sort_by_state: list, state: str = "EXECUTED") -> list:
     """
-    Функция возвращает отсортированный спсиок коллекций по ключу state
+    Функция возвращает отсортированный список коллекций по ключу state
     """
 
     sorted_list = []
