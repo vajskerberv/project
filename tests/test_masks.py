@@ -12,13 +12,13 @@ from src.masks import get_mask_account, get_mask_card_number
         (12341234123412341, "Некорректный номер карты"),
     ],
 )
-def test_get_mask_card_number(card_numbers, masked_card):
+def test_get_mask_card_number(card_numbers: int, masked_card: str) -> None:
     result = get_mask_card_number(card_numbers)
     expected = masked_card
     assert result == expected
 
 
-def test_get_mask_card_number_with_fixture(mask_card_number):
+def test_get_mask_card_number_with_fixture(mask_card_number: str) -> None:
     assert get_mask_card_number(4856294728553957) == mask_card_number
 
 
@@ -32,7 +32,7 @@ def test_get_mask_card_number_with_fixture(mask_card_number):
         (123, "Некорректный номер счёта"),
     ],
 )
-def test_get_mask_account(account_numbers, masked_number):
+def test_get_mask_account(account_numbers: int, masked_number: str) -> None:
     result = get_mask_account(account_numbers)
     expected = masked_number
     assert result == expected
