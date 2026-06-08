@@ -19,11 +19,11 @@ from src.widget import get_date, mask_account_card
         ("Счет 736", "Счет Некорректный номер счёта"),
     ],
 )
-def test_mask_account_card(account_card, expected_masking_result):
+def test_mask_account_card(account_card: str, expected_masking_result: str) -> None:
     result = mask_account_card(account_card)
     expected = expected_masking_result
     assert result == expected
 
 
-def test_get_date(iso_date):
+def test_get_date(iso_date: str) -> None:
     assert get_date("2000-01-01T00:00:00") == iso_date
