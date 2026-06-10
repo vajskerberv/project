@@ -15,27 +15,18 @@ def data_for_tests() -> for_tests:
     ]
 
 
-date = str
-
-
 @pytest.fixture
-def iso_date() -> date:
+def iso_date() -> str:
     return "01.01.2000"
 
 
-card_number = str
-
-
 @pytest.fixture
-def mask_card_number() -> card_number:
+def mask_card_number() -> str:
     return "4856 29** **** 3957"
 
 
-transaction = Dict[str, Union[int, str, Dict[str, Union[str, Dict[str, str]]]]]
-
-
 @pytest.fixture
-def transactions() -> List[transaction]:
+def transactions() -> List[Dict[str, Union[int, str, Dict[str, Union[str, Dict[str, str]]]]]]:
     return [
         {
             "id": 939719570,
