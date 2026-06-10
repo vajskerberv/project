@@ -1,10 +1,9 @@
 import os
+from typing import Any
 
 import pytest
 
-from typing import Any
-
-from  src.decorators import  log
+from src.decorators import log
 
 
 @log()
@@ -12,11 +11,13 @@ def divide_function_console(x: float, y: float) -> float:
     return x / y
 
 
-@pytest.mark.parametrize("x, y, expected_output", [
-    (3, 2, "divide_function_console ok"),
-    (1, 0, "divide_function_console error: ZeroDivisionError. Inputs: (1, 0), {}")
-])
-
+@pytest.mark.parametrize(
+    "x, y, expected_output",
+    [
+        (3, 2, "divide_function_console ok"),
+        (1, 0, "divide_function_console error: ZeroDivisionError. Inputs: (1, 0), {}"),
+    ],
+)
 def test_log_to_console(capsys: Any, x: float, y: float, expected_output: str) -> None:
     if y == 0:
         with pytest.raises(ZeroDivisionError):
@@ -32,10 +33,10 @@ def divide_function_file(x: float, y: float) -> float:
     return x / y
 
 
-@pytest.mark.parametrize("x, y, expected_output", [
-    (3, 2, "divide_function_file ok"),
-    (1, 0, "divide_function_file error: ZeroDivisionError. Inputs: (1, 0), {}")
-])
+@pytest.mark.parametrize(
+    "x, y, expected_output",
+    [(3, 2, "divide_function_file ok"), (1, 0, "divide_function_file error: ZeroDivisionError. Inputs: (1, 0), {}")],
+)
 def test_log_to_file(x: float, y: float, expected_output: str) -> None:
     log_file = "test_log.txt"
 
@@ -48,7 +49,7 @@ def test_log_to_file(x: float, y: float, expected_output: str) -> None:
     else:
         divide_function_file(x, y)
 
-    with open(log_file, 'r') as f:
+    with open(log_file, "r") as f:
         content = f.read()
         assert expected_output in content
 
